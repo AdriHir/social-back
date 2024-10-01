@@ -34,3 +34,9 @@ CREATE TABLE IF NOT EXISTS favourite (
     FOREIGN KEY (favourite_users) REFERENCES users(userId) ON DELETE CASCADE,
     FOREIGN KEY (favourite_posts) REFERENCES posts(postId) ON DELETE CASCADE
 );
+
+SELECT * FROM posts 
+        INNER JOIN users ON author_id=userId
+        ORDER BY `postedAt` DESC
+        LIMIT 0,15;
+        

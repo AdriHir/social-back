@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\UserRepository;
-use function Symfony\Component\Clock\now;
+
 
 
 class AuthController extends AbstractController{
