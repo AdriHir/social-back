@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS favourite (
 
 SELECT * FROM posts 
         INNER JOIN users ON author_id=userId
-        ORDER BY `postedAt` DESC
+        WHERE userId=1
+        ORDER BY `postedAt` DESC        
         LIMIT 0,15;
+        
         

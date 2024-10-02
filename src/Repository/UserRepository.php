@@ -37,4 +37,13 @@ class UserRepository{
 
         $user->setId($connection->lastInsertId());
     }
+    public function update(User $user) {
+        $connection = Database::connect();
+        $query = $connection->prepare('UPDATE users (username=:username, email=:email,password=:password,role=:role');
+        $query->bindValue(':username',$user->getUsername());
+        $query->bindValue(':email', $user->getEmail());
+        $query->bindValue(':password', $user->getPassword());
+        $query->bindValue(':role', $user->getRole());
+        $query->execute();
+    }
 }

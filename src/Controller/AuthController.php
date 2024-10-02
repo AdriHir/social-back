@@ -29,7 +29,7 @@ class AuthController extends AbstractController{
         $hashedPassword = $hasher->hashPassword($user,$user->getPassword());
         $user->setPassword($hashedPassword);
         $user->setCreateAt(new \DateTimeImmutable());
-        $user->setRole('ROLE_USER');
+        $user->setRole('ROLE_INACTIVE');
         $this->repo->persist($user);
         return $this->json($user, 201);
     }
@@ -37,4 +37,10 @@ class AuthController extends AbstractController{
     public function getConnectedUser() {
         return $this->json($this->getUser());
     }
-}
+    #[Route('/api/user/validate', methods:'POST')]
+    public function validateEmail() {
+        $user=$this->getUser();
+        $user->setRole('ROLE_USER');
+        
+
+    }
